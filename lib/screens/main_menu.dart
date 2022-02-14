@@ -24,15 +24,16 @@ class _MainMenuState extends State<MainMenu> {
     super.initState();
   }
 
+  // ignore: unused_element
   void _addnote() {}
 
   _retrieveNotes() async {
     notes = [];
     // ignore: unused_local_variable
     List response = json.decode((await client.get(retrieveUrl)).body);
-    response.forEach((element) {
+    for (var element in response) {
       notes.add(Note.fromMap(element));
-    });
+    }
     setState(() {});
   }
 
@@ -45,7 +46,12 @@ class _MainMenuState extends State<MainMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main Menu'),
+        title: const Text(
+          'Main Menu',
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
       ),
       body: RefreshIndicator(
           onRefresh: () async {

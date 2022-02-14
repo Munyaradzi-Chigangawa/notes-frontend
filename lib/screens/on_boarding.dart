@@ -103,7 +103,7 @@ class _OnBoardState extends State<OnBoard> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(screens[index].img),
-                  Container(
+                  SizedBox(
                     height: 10.0,
                     child: ListView.builder(
                       itemCount: screens.length,
@@ -161,7 +161,7 @@ class _OnBoardState extends State<OnBoard> {
                       }
 
                       _pageController.nextPage(
-                        duration: Duration(milliseconds: 300),
+                        duration: const Duration(milliseconds: 300),
                         curve: Curves.bounceIn,
                       );
                     },
