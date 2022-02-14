@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:notes/screens/main_menu.dart';
+import 'package:notes/screens/on_boarding.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+int? isviewed;
+Future<void> main() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  isviewed = prefs.getInt('onBoard');
   runApp(const MyApp());
 }
 
@@ -14,6 +19,6 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const MainMenu());
+        home: isviewed != 0 ? const OnBoard() : const MainMenu());
   }
 }
