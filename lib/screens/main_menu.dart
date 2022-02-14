@@ -84,10 +84,16 @@ class _MainMenuState extends State<MainMenu> {
               );
             },
           )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () =>
-            MaterialPageRoute(builder: (context) => const CreateNote()),
-        tooltip: 'Add Note',
+      floatingActionButton: Theme(
+        data: Theme.of(context).copyWith(highlightColor: Colors.orange),
+        child: FloatingActionButton(
+          onPressed: () => Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => CreatePage(
+                    client: client,
+                  ))),
+          child: const Icon(Icons.add),
+          tooltip: 'Add Note',
+        ),
       ),
     );
   }
