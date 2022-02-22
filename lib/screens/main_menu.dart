@@ -47,8 +47,9 @@ class _MainMenuState extends State<MainMenu> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Main Menu',
-          style: TextStyle(color: Colors.black),
+          'Notes',
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.w700, color: Colors.black),
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
