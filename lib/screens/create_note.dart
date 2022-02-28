@@ -52,6 +52,7 @@ class _CreatePageState extends State<CreatePage> {
             decoration: const InputDecoration(
                 labelText: "Note", hintText: "Enter your note"),
             controller: controller,
+            maxLines: null,
           ),
           const SizedBox(
             height: 80,

@@ -5,6 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart';
 import 'package:notes/models/note.dart';
 import 'package:notes/screens/create_note.dart';
+import 'package:notes/screens/update_note.dart';
 import 'package:notes/urls.dart';
 
 class MainMenu extends StatefulWidget {
@@ -74,12 +75,12 @@ class _MainMenuState extends State<MainMenu> {
                     title: Text('Note - ' + notes[index].id.toString()),
                     subtitle: Text(notes[index].note),
                     onTap: () {
-                      // Navigator.of(context).push(MaterialPageRoute(
-                      //     builder: (context) => UpdatePage(
-                      //           client: client,
-                      //           note: notes[index].note,
-                      //           id: notes[index].id,
-                      //         )));
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => UpdateNote(
+                                client: client,
+                                note: notes[index].note,
+                                id: notes[index].id,
+                              )));
                     },
                     trailing: IconButton(
                         icon: const Icon(Icons.delete),
